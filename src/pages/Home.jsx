@@ -149,9 +149,10 @@ const Home = () => {
           </h2>
           <div
             id="artistCarousel"
-            className="carousel slide animate__animated animate__fadeInUp" // Animation ajoutée
-            data-bs-ride="carousel"
-            data-bs-interval="3000"
+            className="carousel slide"
+            data-bs-ride="carousel" // Active le défilement automatique
+            data-bs-interval="3000" // Change d'image toutes les 3 secondes
+            data-bs-wrap="true" // Permet de boucler le carousel
           >
             <div className="carousel-inner">
               <div className="carousel-item active">
@@ -160,8 +161,8 @@ const Home = () => {
                   className="d-block w-100"
                   alt="Artiste 1"
                   style={{
-                    height: '400px',
-                    objectFit: 'cover',
+                    height: '650px', // Hauteur augmentée à 650px
+                    objectFit: 'cover', // Empêche la déformation
                   }}
                 />
                 <div className="carousel-caption d-none d-md-block">
@@ -175,8 +176,8 @@ const Home = () => {
                   className="d-block w-100"
                   alt="Artiste 2"
                   style={{
-                    height: '400px',
-                    objectFit: 'cover',
+                    height: '650px', // Hauteur augmentée à 650px
+                    objectFit: 'cover', // Empêche la déformation
                   }}
                 />
                 <div className="carousel-caption d-none d-md-block">
@@ -184,7 +185,87 @@ const Home = () => {
                   <p>Un talent exceptionnel dans la musique béninoise.</p>
                 </div>
               </div>
+              <div className="carousel-item">
+                <img
+                  src="src/assets/image/3.jpg"
+                  className="d-block w-100"
+                  alt="Artiste 3"
+                  style={{
+                    height: '650px', // Hauteur augmentée à 650px
+                    objectFit: 'cover', // Empêche la déformation
+                  }}
+                />
+                <div className="carousel-caption d-none d-md-block">
+                  <h5>Artiste 3</h5>
+                  <p>Un artiste incontournable de la scène béninoise.</p>
+                </div>
+              </div>
+              <div className="carousel-item">
+                <img
+                  src="src/assets/image/4.jpg"
+                  className="d-block w-100"
+                  alt="Artiste 4"
+                  style={{
+                    height: '650px', // Hauteur augmentée à 650px
+                    objectFit: 'cover', // Empêche la déformation
+                  }}
+                />
+                <div className="carousel-caption d-none d-md-block">
+                  <h5>Artiste 4</h5>
+                  <p>Un talent émergent dans l'art contemporain.</p>
+                </div>
+              </div>
+              <div className="carousel-item">
+                <img
+                  src="src/assets/image/5.jpg"
+                  className="d-block w-100"
+                  alt="Artiste 5"
+                  style={{
+                    height: '650px', // Hauteur augmentée à 650px
+                    objectFit: 'cover', // Empêche la déformation
+                  }}
+                />
+                <div className="carousel-caption d-none d-md-block">
+                  <h5>Artiste 5</h5>
+                  <p>Un maître des rythmes traditionnels béninois.</p>
+                </div>
+              </div>
+              <div className="carousel-item">
+                <img
+                  src="src/assets/image/6.jpg"
+                  className="d-block w-100"
+                  alt="Artiste 6"
+                  style={{
+                    height: '650px', // Hauteur augmentée à 650px
+                    objectFit: 'cover', // Empêche la déformation
+                  }}
+                />
+                <div className="carousel-caption d-none d-md-block">
+                  <h5>Artiste 6</h5>
+                  <p>Un artiste qui redéfinit la culture béninoise.</p>
+                </div>
+              </div>
             </div>
+
+            {/* Boutons de contrôle */}
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#artistCarousel"
+              data-bs-slide="prev"
+            >
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Précédent</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#artistCarousel"
+              data-bs-slide="next"
+            >
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Suivant</span>
+            </button>
           </div>
         </div>
       </div>
