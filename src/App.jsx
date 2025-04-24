@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import Contents from './pages/Contents';
 import Events from './pages/Events';
 import Login from './pages/Auth/Login';
-import Register from './pages/Auth/Register';
 import Account from './pages/Account';
 import './styles/custom.css';
 import 'animate.css';
@@ -27,7 +26,6 @@ const App = () => {
             <Route path="/contents" element={<Contents />} />
             <Route path="/events" element={<Events />} />
             <Route path="/auth" element={<Login />} />
-            <Route path="/register" element={<Register />} />
             <Route path="/account" element={<Account />} />
           </Routes>
         </main>

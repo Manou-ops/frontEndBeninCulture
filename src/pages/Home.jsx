@@ -12,8 +12,7 @@ const Home = () => {
           color: '#f7b801', // Jaune
           transition: 'background-color 0.3s ease', // Transition pour l'effet hover
         }}
-        onMouseOver={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.8)')} // Effet hover : arrière-plan plus foncé
-        onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'transparent')} // Retour à l'arrière-plan initial
+        
       >
         <h1
           style={{
@@ -62,7 +61,7 @@ const Home = () => {
               backgroundColor: 'transparent', // Suppression de la couleur de fond
             }}
           >
-            Explorer les Contenus
+            NOS LEGENDES
           </a>
         </div>
 
@@ -70,15 +69,22 @@ const Home = () => {
         <div className="mt-5 row align-items-center">
           <div className="col-md-6">
             <img
-              src="src/assets/image/1.jpg"
+              src="src/assets/image/2.jpg"
               alt="Culture béninoise"
               className="img-fluid rounded animate__animated animate__fadeInLeft" // Animation ajoutée
+          
             />
           </div>
           <div className="col-md-6">
             <h2 style={{ color: '#800020' }}>La richesse de notre culture</h2>
             <p>
               Le Bénin est un pays riche en traditions, en art et en musique.
+              Découvrez les danses traditionnelles, les sculptures uniques et les
+              rythmes qui font vibrer notre nation.Le Bénin est un pays riche en traditions, en art et en musique.
+              Découvrez les danses traditionnelles, les sculptures uniques et les
+              rythmes qui font vibrer notre nation.  Le Bénin est un pays riche en traditions, en art et en musique.
+              Découvrez les danses traditionnelles, les sculptures uniques et les
+              rythmes qui font vibrer notre nation.Le Bénin est un pays riche en traditions, en art et en musique.
               Découvrez les danses traditionnelles, les sculptures uniques et les
               rythmes qui font vibrer notre nation.
             </p>
@@ -88,7 +94,7 @@ const Home = () => {
         {/* Section des catégories */}
         <div className="mt-5">
           <h2 className="text-center mb-4" style={{ color: '#f7b801', fontWeight: 'bold' }}>
-            Nos Catégories
+            
           </h2>
           <div className="row">
             <div className="col-md-4">
@@ -111,7 +117,7 @@ const Home = () => {
               <div
                 className="card animate__animated animate__zoomIn" // Animation ajoutée
                 style={{
-                  backgroundImage: "url('src/assets/image/2.jpg')",
+                  backgroundImage: "url('src/assets/image/1.jpg')",
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   height: '200px',
@@ -145,7 +151,7 @@ const Home = () => {
         {/* Section : Quelques-uns de nos artistes */}
         <div className="mt-5">
           <h2 className="text-center mb-4" style={{ color: '#800020', fontWeight: 'bold' }}>
-            Quelques-uns de nos artistes
+            LA NOUVELLE GENERATION D'ARTISTES
           </h2>
           <div
             id="artistCarousel"

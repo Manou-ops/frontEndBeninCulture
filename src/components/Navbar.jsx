@@ -1,3 +1,4 @@
+import { right } from '@popperjs/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,8 +7,8 @@ const Navbar = () => {
     <nav
       className="navbar navbar-expand-lg"
       style={{
-        backgroundColor: '#000000', // Noir
-        color: '#f7b801', // Orange doré
+        backgroundColor: 'black', // Noir
+        color: 'yellow', // Orange doré
         position: 'fixed',
         top: 0,
         width: '100%',
