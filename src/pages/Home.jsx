@@ -1,259 +1,163 @@
 import React from 'react';
+import 'animate.css';
 
 const Home = () => {
   return (
     <div className="container-fluid p-0">
-      {/* Nouvelle section avec une image de fond */}
+      {/* Titre avec animation */}
       <div
-        className="text-center d-flex align-items-center justify-content-center"
+        className="text-center d-flex align-items-center justify-content-center animate__animated animate__fadeInDown"
         style={{
           backgroundPosition: 'center',
-          height: '80px', // Hauteur de la section
-          color: '#f7b801', // Jaune
-          transition: 'background-color 0.3s ease', // Transition pour l'effet hover
+          height: '80px',
+          color: '#f7b801',
+          transition: 'background-color 0.3s ease',
         }}
-        
-      >
+        >
         <h1
           style={{
-            fontSize: '4rem', // Taille du texte
+            fontSize: '4rem',
             fontWeight: 'bold',
-            color: '#f7b801', // Jaune
-            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Ombre du texte
+            color: '#f7b801',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+            marginTop: '37px',
           }}
         >
-          BINEVENU.E SUR :
+          BIENVENU.E SUR :
         </h1>
       </div>
 
-      {/* Section principale avec une image de fond */}
-      <div className="container mt-5" style={{ marginTop: '80px' }}>
+
+      {/* Image de fond avec animation zoom */}
+      <div className="container mt-5">
         <div
-          className="jumbotron text-white text-center p-5"
+          className="jumbotron text-white text-center p-5 animate__animated animate__zoomIn"
           style={{
             backgroundImage: "url('src/assets/image/logo.jpg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             borderRadius: '10px',
-            height: '600px', // Augmentation de la hauteur
+            height: '600px',
           }}
-        >
-        </div>
+        ></div>
 
-        {/* Bouton Explorer les Contenus */}
+        {/* Bouton Explorer */}
         <div
           className="text-center"
-          style={{
-            transition: 'background-color 0.3s ease', // Transition pour l'effet hover
-          }}
-          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.8)')} // Effet hover
-          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'transparent')} // Retour à l'arrière-plan initial
+          style={{ transition: 'background-color 0.3s ease' }}
+          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.8)')}
+          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
         >
           <a
             href="/contents"
-            className="btn btn-lg mt-3"
+            className="btn btn-lg mt-3 animate__animated animate__pulse animate__infinite"
             style={{
-              fontSize: '4rem', // Taille du texte
+              fontSize: '4rem',
               fontWeight: 'bold',
-              color: '#f7b801', // Jaune
-              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Ombre du texte
-              border: 'none', // Suppression de la bordure
-              backgroundColor: 'transparent', // Suppression de la couleur de fond
+              color: '#f7b801',
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+              border: 'none',
+              backgroundColor: 'transparent',
             }}
           >
-            NOS LEGENDES
+            A PROPOS DE NOUS
           </a>
         </div>
 
-        {/* Section : La richesse de notre culture */}
+        {/* Richesse de la culture */}
         <div className="mt-5 row align-items-center">
           <div className="col-md-6">
             <img
-              src="src/assets/image/2.jpg"
+              src="src/assets/image/amazone.jpg"
               alt="Culture béninoise"
-              className="img-fluid rounded animate__animated animate__fadeInLeft" // Animation ajoutée
-          
+              className="img-fluid rounded animate__animated animate__fadeInLeft"
             />
           </div>
-          <div className="col-md-6">
-            <h2 style={{ color: '#800020' }}>La richesse de notre culture</h2>
-            <p>
-              Le Bénin est un pays riche en traditions, en art et en musique.
-              Découvrez les danses traditionnelles, les sculptures uniques et les
-              rythmes qui font vibrer notre nation.Le Bénin est un pays riche en traditions, en art et en musique.
-              Découvrez les danses traditionnelles, les sculptures uniques et les
-              rythmes qui font vibrer notre nation.  Le Bénin est un pays riche en traditions, en art et en musique.
-              Découvrez les danses traditionnelles, les sculptures uniques et les
-              rythmes qui font vibrer notre nation.Le Bénin est un pays riche en traditions, en art et en musique.
-              Découvrez les danses traditionnelles, les sculptures uniques et les
-              rythmes qui font vibrer notre nation.
+          <div className="col-md-6 animate__animated animate__fadeInRight">
+            <h2 style={{ color: '#800020' }}></h2>
+            <p style={{ fontSize: '1.2rem', lineHeight: '1.5', fontWeight: 'bold', textAlign: 'justify' }}>
+            <span style={{ color: 'red' }}>Benin_Culture</span> est une plateforme numérique dédiée à la valorisation des talents artistiques et culturels béninois. 
+            Pensée comme un pont entre les artistes, les promoteurs culturels et le public, elle permet de partager des créations musicales, 
+            d’organiser des événements et de connecter les passionnés de culture en un seul lieu. Grâce à une interface simple et intuitive, 
+            les artistes peuvent créer leur profil, diffuser leurs œuvres, vendre leurs tickets de spectacle et recevoir le soutien direct 
+            de leur communauté. Plus qu’un site, <span style={{ color: 'gold' }}>Benin_Culture</span> est un espace d’expression, de découverte et de promotion de la richesse 
+            culturelle du Bénin.
             </p>
+
           </div>
         </div>
 
-        {/* Section des catégories */}
+        {/* Catégories */}
         <div className="mt-5">
           <h2 className="text-center mb-4" style={{ color: '#f7b801', fontWeight: 'bold' }}>
-            
+             NOS LEGENDES
           </h2>
           <div className="row">
-            <div className="col-md-4">
-              <div
-                className="card animate__animated animate__zoomIn" // Animation ajoutée
-                style={{
-                  backgroundImage: "url('src/assets/image/1.jpg')",
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  height: '200px',
-                  borderRadius: '10px',
-                }}
-              >
-                <div className="card-body text-white text-center">
-                  <h5 className="card-title">Musique</h5>
+            {['1.jpg', '2.jpg', '12.jpg'].map((img, index) => (
+              <div className="col-md-4" key={index}>
+                <div
+                  className={`card animate__animated animate__zoomIn animate__delay-${index + 1}s`}
+                  style={{
+                    backgroundImage: `url('src/assets/image/${img}')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    height: '200px',
+                    borderRadius: '10px',
+                  }}
+                >
+                  <div className="card-body text-white text-center">
+                    <h5 className="card-title">
+                     
+                    </h5>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-md-4">
-              <div
-                className="card animate__animated animate__zoomIn" // Animation ajoutée
-                style={{
-                  backgroundImage: "url('src/assets/image/1.jpg')",
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  height: '200px',
-                  borderRadius: '10px',
-                }}
-              >
-                <div className="card-body text-white text-center">
-                  <h5 className="card-title">Art</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div
-                className="card animate__animated animate__zoomIn" // Animation ajoutée
-                style={{
-                  backgroundImage: "url('src/assets/image/3.jpg')",
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  height: '200px',
-                  borderRadius: '10px',
-                }}
-              >
-                <div className="card-body text-white text-center">
-                  <h5 className="card-title">Événements</h5>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Section : Quelques-uns de nos artistes */}
+        {/* Artistes */}
         <div className="mt-5">
-          <h2 className="text-center mb-4" style={{ color: '#800020', fontWeight: 'bold' }}>
-            LA NOUVELLE GENERATION D'ARTISTES
+          <h2 className="text-center mb-4" style={{ color: 'red', fontWeight: 'bold' }}>
+            LA NOUVELLE GÉNÉRATION D'ARTISTES
           </h2>
           <div
             id="artistCarousel"
             className="carousel slide"
-            data-bs-ride="carousel" // Active le défilement automatique
-            data-bs-interval="3000" // Change d'image toutes les 3 secondes
-            data-bs-wrap="true" // Permet de boucler le carousel
+            data-bs-ride="carousel"
+            data-bs-interval="3000"
+            data-bs-wrap="true"
           >
             <div className="carousel-inner">
-              <div className="carousel-item active">
-                <img
-                  src="src/assets/image/1.jpg"
-                  className="d-block w-100"
-                  alt="Artiste 1"
-                  style={{
-                    height: '650px', // Hauteur augmentée à 650px
-                    objectFit: 'cover', // Empêche la déformation
-                  }}
-                />
-                <div className="carousel-caption d-none d-md-block">
-                  <h5>Artiste 1</h5>
-                  <p>Un des artistes les plus influents du Bénin.</p>
+              {[124, 126, 127, 128, 5, 6].map((num, idx) => (
+                <div
+                  className={`carousel-item animate__animated animate__fadeIn ${idx === 0 ? 'active' : ''}`}
+                  key={num}
+                >
+                  <img
+                    src={`src/assets/image/${num}.jpg`}
+                    className="d-block w-100"
+                    alt={`Artiste ${num}`}
+                    style={{ height: '650px', objectFit: 'cover' }}
+                  />
+                  <div className="carousel-caption d-none d-md-block">
+                    <h5>Artiste {num}</h5>
+                    <p>
+                      {[
+                        'Un des artistes les plus influents du Bénin.',
+                        'Un talent exceptionnel dans la musique béninoise.',
+                        'Un artiste incontournable de la scène béninoise.',
+                        'Un talent émergent dans l’art contemporain.',
+                        'Un maître des rythmes traditionnels béninois.',
+                        'Un artiste qui redéfinit la culture béninoise.',
+                      ][idx]}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="src/assets/image/2.jpg"
-                  className="d-block w-100"
-                  alt="Artiste 2"
-                  style={{
-                    height: '650px', // Hauteur augmentée à 650px
-                    objectFit: 'cover', // Empêche la déformation
-                  }}
-                />
-                <div className="carousel-caption d-none d-md-block">
-                  <h5>Artiste 2</h5>
-                  <p>Un talent exceptionnel dans la musique béninoise.</p>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="src/assets/image/3.jpg"
-                  className="d-block w-100"
-                  alt="Artiste 3"
-                  style={{
-                    height: '650px', // Hauteur augmentée à 650px
-                    objectFit: 'cover', // Empêche la déformation
-                  }}
-                />
-                <div className="carousel-caption d-none d-md-block">
-                  <h5>Artiste 3</h5>
-                  <p>Un artiste incontournable de la scène béninoise.</p>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="src/assets/image/4.jpg"
-                  className="d-block w-100"
-                  alt="Artiste 4"
-                  style={{
-                    height: '650px', // Hauteur augmentée à 650px
-                    objectFit: 'cover', // Empêche la déformation
-                  }}
-                />
-                <div className="carousel-caption d-none d-md-block">
-                  <h5>Artiste 4</h5>
-                  <p>Un talent émergent dans l'art contemporain.</p>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="src/assets/image/5.jpg"
-                  className="d-block w-100"
-                  alt="Artiste 5"
-                  style={{
-                    height: '650px', // Hauteur augmentée à 650px
-                    objectFit: 'cover', // Empêche la déformation
-                  }}
-                />
-                <div className="carousel-caption d-none d-md-block">
-                  <h5>Artiste 5</h5>
-                  <p>Un maître des rythmes traditionnels béninois.</p>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="src/assets/image/6.jpg"
-                  className="d-block w-100"
-                  alt="Artiste 6"
-                  style={{
-                    height: '650px', // Hauteur augmentée à 650px
-                    objectFit: 'cover', // Empêche la déformation
-                  }}
-                />
-                <div className="carousel-caption d-none d-md-block">
-                  <h5>Artiste 6</h5>
-                  <p>Un artiste qui redéfinit la culture béninoise.</p>
-                </div>
-              </div>
+              ))}
             </div>
 
-            {/* Boutons de contrôle */}
+            {/* Contrôles */}
             <button
               className="carousel-control-prev"
               type="button"
@@ -278,5 +182,35 @@ const Home = () => {
     </div>
   );
 };
+
+// Ajoute ce CSS dans ton fichier CSS ou dans un <style> global
+<style>
+  {`
+    .scrolling-text-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 80px;
+    }
+
+    .scrolling-text {
+      display: inline-block;
+      white-space: nowrap;
+      position: absolute;
+      will-change: transform;
+      animation: scrollLeft 10s linear infinite;
+    }
+
+    @keyframes scrollLeft {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  `}
+</style>
+
 
 export default Home;

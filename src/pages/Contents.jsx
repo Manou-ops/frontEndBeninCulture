@@ -1,51 +1,58 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { FaPlayCircle } from 'react-icons/fa'; // Import de l'icône Play
+import { FaPlayCircle } from 'react-icons/fa';
 
 const Contents = () => {
   const [contents, setContents] = useState([]);
 
   useEffect(() => {
-    // Récupération des contenus depuis l'API
     axios
-      .get('https://projetbeninculture-1.onrender.com/api/contents') // Vérifiez que cette URL est correcte
-      .then(response => {
-        setContents(response.data); // Mise à jour de l'état avec les données récupérées
-      })
-      .catch(error => {
-        console.error('Erreur lors de la récupération des contenus:', error);
-      });
+      .get('https://projetbeninculture-1.onrender.com/api/contents')
+      .then(response => setContents(response.data))
+      .catch(error => console.error('Erreur lors de la récupération des contenus:', error));
   }, []);
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4">Contenus</h1>
+     <h1 className="text-center mb-4">
+  <span style={{ color: 'green' }}>MUSIQUE </span>
+  <span style={{ color: 'goldenrod' }}>DISPONIBLE SUR </span>
+  <span style={{ color: 'red' }}>Benin_Culture</span>
+</h1>
+
       <div className="row">
         {contents.length > 0 ? (
           contents.map((content, index) => (
-            <div className="col-md-4" key={content.id || index}>
-              <div className="card mb-4 text-center">
+            <div className="col-md-4" key={content._id || index}>
+              <div
+                className="card mb-4 shadow-sm border-0"
+                style={{ borderRadius: '15px', overflow: 'hidden', transition: 'transform 0.3s ease' }}
+              >
                 <div
-                  className="d-flex align-items-center justify-content-center"
+                  className="position-relative"
                   style={{
                     height: '200px',
-                    backgroundColor: '#f7f7f7', // Couleur de fond pour l'icône
-                    borderRadius: '10px',
-                    cursor: 'pointer', // Ajout du curseur pour indiquer que c'est cliquable
+                    backgroundImage: `url('src/assets/image/amazone.jpg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    cursor: 'pointer',
                   }}
                   onClick={() => {
-                    if (content.url) {
-                      window.open(content.url, '_blank'); // Ouvre l'URL dans un nouvel onglet
+                    const url = content.fileUrl;
+                    if (typeof url === 'string' && url.trim() !== '') {
+                      window.open(url, '_blank');
                     } else {
-                      console.error('URL manquante pour ce contenu');
+                      console.error('URL invalide ou manquante pour ce contenu');
                     }
                   }}
                 >
-                  <FaPlayCircle size={60} color="#800020" /> {/* Icône Play */}
+                  <div className="d-flex justify-content-center align-items-center h-100 w-100" style={{ background: 'rgba(0,0,0,0.5)' }}>
+                    <FaPlayCircle size={60} color="#fff" />
+                  </div>
                 </div>
-                <div className="card-body">
-                  <h5 className="card-title">{content.title || 'Titre indisponible'}</h5>
-                  <p className="card-text">{content.description || 'Description indisponible'}</p>
+                <div className="card-body text-center">
+                  <h5 className="card-title fw-bold">{content.title || 'Titre indisponible'}</h5>
+                  <p className="card-text text-muted">{content.description || 'Description indisponible'}</p>
                 </div>
               </div>
             </div>
