@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { UserContext } from '../../contexts/UserContext'; // <-- Import du contexte
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -8,37 +9,50 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('Utilisateur');
   const navigate = useNavigate();
+  const { loadUser } = useContext(UserContext); // <-- On récupère loadUser pour mettre à jour le user global
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isLogin) {
-      axios.post('https://projetbeninculture-1.onrender.com/api/auth/login', { username, password })
-        .then(response => {
-          console.log('Connexion réussie:', response.data);
-          navigate('/contents');
-        })
-        .catch(error => console.error('Erreur de connexion:', error));
+      // Partie Connexion
+      try {
+        const response = await axios.post('https://projetbeninculture-1.onrender.com/api/auth/login', { username, password });
+        console.log('Connexion réussie:', response.data);
+
+        // Stockage du token reçu
+        localStorage.setItem('token', response.data.token);
+
+        // Charger les données utilisateur directement pour mettre à jour la Navbar
+        await loadUser();
+
+        // Redirection vers la page "contents"
+        navigate('/contents');
+      } catch (error) {
+        console.error('Erreur de connexion:', error);
+        if (error.response) {
+          console.error('Détail:', error.response.data);
+        }
+      }
     } else {
-      axios.post('https://projetbeninculture-1.onrender.com/api/auth/register', { username, password, role })
-        .then(response => {
-          console.log('Inscription réussie:', response.data);
-          setIsLogin(true);
-        })
-        .catch(error => {
-          console.error('Erreur d\'inscription:', error);
-          if (error.response) {
-            console.error('Détail:', error.response.data);
-          }
-        });
+      // Partie Inscription
+      try {
+        const response = await axios.post('https://projetbeninculture-1.onrender.com/api/auth/register', { username, password, role });
+        console.log('Inscription réussie:', response.data);
+
+        // Après inscription, repasser en mode "Connexion"
+        setIsLogin(true);
+      } catch (error) {
+        console.error('Erreur d\'inscription:', error);
+        if (error.response) {
+          console.error('Détail:', error.response.data);
+        }
+      }
     }
   };
 
   return (
     <div className="container mt-5" style={{ maxWidth: '500px' }}>
-      <h1
-        className="text-center mb-4"
-        style={{ color: 'green', fontWeight: 'bold' }}
-      >
+      <h1 className="text-center mb-4" style={{ color: 'green', fontWeight: 'bold' }}>
         {isLogin ? 'Connexion' : 'Inscription'}
       </h1>
 

@@ -1,7 +1,73 @@
-import React from 'react';
+
+import React, { useState } from 'react';
+import { FaUser, FaEnvelope, FaCommentDots } from 'react-icons/fa';
+import emailjs from 'emailjs-com';
 import 'animate.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
+
+  const [formData, setFormData] = useState({
+    prenom: '',
+    email: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSending(true); // ➔ Dès qu'on clique, bouton devient "Envoi en cours..."
+  
+    // 1. Envoyer d'abord l'email vers toi (propriétaire)
+    emailjs.send('service_fl5twzp', 'template_slv8e1w', {
+      from_name: formData.prenom,
+      reply_to: formData.email,
+      message: formData.message,
+    }, '7A6EkOUvNe08EijuP')
+    .then((response) => {
+      console.log('Message envoyé vers le propriétaire:', response.status);
+  
+      // 2. Ensuite envoyer la confirmation vers l'utilisateur
+      emailjs.send('service_fl5twzp', 'template_qnxnayq', {
+        from_name: formData.prenom,
+        reply_to: formData.email, // Bien reply_to ici
+      }, '7A6EkOUvNe08EijuP')
+      .then(() => {
+        toast.success('Merci pour votre avis ! Un email de confirmation a été envoyé.', {
+          position: "top-center",
+          autoClose: 3000,
+        });
+        setFormData({ prenom: '', email: '', message: '' });
+        setSending(false);
+      })
+      .catch((error) => {
+        console.error('Erreur lors de l\'envoi de l\'email de confirmation:', error);
+        toast.error('Erreur lors de l\'envoi de l\'email de confirmation.', {
+          position: "top-center",
+          autoClose: 3000,
+        });
+        setSending(false);
+      });
+  
+    })
+    .catch((error) => {
+      console.error('Erreur lors de l\'envoi du message principal:', error);
+      toast.error('Erreur lors de l\'envoi du message.', {
+        position: "top-center",
+        autoClose: 3000,
+      });
+      setSending(false);
+    });
+  };
+  
+
+
   return (
     <div className="container-fluid p-0">
       {/* Titre avec animation */}
@@ -18,7 +84,7 @@ const Home = () => {
           style={{
             fontSize: '4rem',
             fontWeight: 'bold',
-            color: '#f7b801',
+            color: '#bd6f2f',
             textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
             marginTop: '37px',
           }}
@@ -33,11 +99,11 @@ const Home = () => {
         <div
           className="jumbotron text-white text-center p-5 animate__animated animate__zoomIn"
           style={{
-            backgroundImage: "url('src/assets/image/logo.jpg')",
+            backgroundImage: "url('src/assets/image/logoss.png')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             borderRadius: '10px',
-            height: '600px',
+            height: '800px',
           }}
         ></div>
 
@@ -54,7 +120,7 @@ const Home = () => {
             style={{
               fontSize: '4rem',
               fontWeight: 'bold',
-              color: '#f7b801',
+              color: '#f7c319',
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
               border: 'none',
               backgroundColor: 'transparent',
@@ -76,11 +142,11 @@ const Home = () => {
           <div className="col-md-6 animate__animated animate__fadeInRight">
             <h2 style={{ color: '#800020' }}></h2>
             <p style={{ fontSize: '1.2rem', lineHeight: '1.5', fontWeight: 'bold', textAlign: 'justify' }}>
-            <span style={{ color: 'red' }}>Benin_Culture</span> est une plateforme numérique dédiée à la valorisation des talents artistiques et culturels béninois. 
+            <span style={{ color: '#bd6f2f' }}>Benin Culture</span> est une plateforme numérique dédiée à la valorisation des talents artistiques et culturels béninois. 
             Pensée comme un pont entre les artistes, les promoteurs culturels et le public, elle permet de partager des créations musicales, 
             d’organiser des événements et de connecter les passionnés de culture en un seul lieu. Grâce à une interface simple et intuitive, 
             les artistes peuvent créer leur profil, diffuser leurs œuvres, vendre leurs tickets de spectacle et recevoir le soutien direct 
-            de leur communauté. Plus qu’un site, <span style={{ color: 'gold' }}>Benin_Culture</span> est un espace d’expression, de découverte et de promotion de la richesse 
+            de leur communauté. Plus qu’un site, <span style={{ color: '#bd6f2f' }}>Benin Culture</span> est un espace d’expression, de découverte et de promotion de la richesse 
             culturelle du Bénin.
             </p>
 
@@ -179,6 +245,87 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <section className="mt-5 p-4 bg-light rounded shadow fade-in">
+        <h2 className="text-center mb-4" style={{ color: '#f7c319', fontWeight: 'bold' }}>
+          Laissez-nous votre avis
+        </h2>
+
+        <form onSubmit={handleSubmit} className="row g-3">
+          <div className="col-12 col-md-6">
+            <label className="form-label" style={{ fontWeight: 'bold' }}>
+              <FaUser style={{ marginRight: '8px' }} /> Prénom
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="prenom"
+              value={formData.prenom}
+              onChange={handleChange}
+              placeholder="Votre prénom"
+              required
+            />
+          </div>
+
+          <div className="col-12 col-md-6">
+            <label className="form-label" style={{ fontWeight: 'bold' }}>
+              <FaEnvelope style={{ marginRight: '8px' }} /> Email
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Votre adresse email"
+              required
+            />
+          </div>
+
+          <div className="col-12">
+            <label className="form-label" style={{ fontWeight: 'bold' }}>
+              <FaCommentDots style={{ marginRight: '8px' }} /> Message
+            </label>
+            <textarea
+              className="form-control"
+              name="message"
+              rows="5"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Votre message"
+              required
+            />
+          </div>
+
+          <div className="col-12 text-center">
+            <button
+                type="submit"
+                className="btn btn-success px-5"
+                style={{ fontWeight: 'bold', fontSize: '1.1rem', backgroundColor:'#f7c319' }}
+                disabled={sending} // ➔ désactivé pendant l'envoi
+              >
+                {sending ? 'Envoi en cours...' : 'Envoyer'}
+            </button>
+          </div>
+        </form>
+
+        <style>{`
+          .fade-in {
+            animation: fadeInAnimation 1.5s ease;
+          }
+
+          @keyframes fadeInAnimation {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}</style>
+      </section>
     </div>
   );
 };
@@ -211,6 +358,7 @@ const Home = () => {
     }
   `}
 </style>
+
 
 
 export default Home;
