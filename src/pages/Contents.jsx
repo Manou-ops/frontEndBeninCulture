@@ -27,7 +27,7 @@ const Contents = () => {
   if (!isConnected) {
     return (
       <div className="container text-center mt-5 fade-in">
-        <h1 style={{ color: 'green', fontWeight: 'bold' }}>Bienvenue sur Benin_Culture</h1>
+        <h1 style={{ color: 'green', fontWeight: 'bold' }}>Bienvenue sur Benin Culture</h1>
         <p className="lead mt-3" style={{ color: 'gray' }}>
           Pour découvrir tout notre contenu exclusif, veuillez créer un compte ou vous connecter.
         </p>
@@ -46,7 +46,7 @@ const Contents = () => {
             {[1, 2, 3, 4, 5, 6].map((num) => (
               <div className="col-12 col-sm-6 col-md-4" key={num}>
                 <img
-                  src={`/src/assets/image/patrimoine${num}.jpg`} // Exemple : patrimoine1.jpg, patrimoine2.jpg, etc.
+                  src={`/src/assets/image/patrimoine${num}.jpg`} // Exemple : patrimoine1.jpg, patrimoine2.jpg
                   alt={`Patrimoine ${num}`}
                   className="img-fluid patrimoine-img"
                 />
