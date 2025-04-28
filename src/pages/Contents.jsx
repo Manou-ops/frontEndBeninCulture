@@ -46,7 +46,7 @@ const Contents = () => {
             {[1, 2, 3, 4, 5, 6].map((num) => (
               <div className="col-12 col-sm-6 col-md-4" key={num}>
                 <img
-                  src={`/src/assets/image/patrimoine${num}.jpg`} // Exemple : patrimoine1.jpg, patrimoine2.jpg
+                  src={`/patrimoine${num}.jpg`} // Exemple : patrimoine1.jpg, patrimoine2.jpg
                   alt={`Patrimoine ${num}`}
                   className="img-fluid patrimoine-img"
                 />

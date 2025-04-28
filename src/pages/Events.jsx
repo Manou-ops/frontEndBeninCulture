@@ -19,14 +19,14 @@ const Events = () => {
       id: 2,
       title: 'Révélation ! Art contemporain du Bénin ',
       description: 'L exposition Révélation ! Art contemporain du Bénin est référencée dans notre rubrique Art contemporain. ',
-      imageUrl: '/src/assets/image/event2.jpg',
+      imageUrl: '/event2.jpg',
       link: 'https://www.offi.fr/expositions-musees/conciergerie-1922/revelation-art-contemporain-du-benin-97473.html'
     },
     {
       id: 3,
       title: 'FINAB',
       description: 'Tisser les liens : Le narratif africain à travers l‘art..',
-      imageUrl: '/src/assets/image/finab.jpg',
+      imageUrl: '/finab.jpg',
       link: 'https://finab.bj/'
     },
 
