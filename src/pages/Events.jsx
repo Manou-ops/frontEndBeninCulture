@@ -12,7 +12,7 @@ const Events = () => {
       id: 1,
       title: 'Weloveya',
       description: 'WeLovEya Le FESTIVAL Urbain et Afrobeat de référence.',
-      imageUrl: '/src/assets/image/event1.jpg',
+      imageUrl: '/event1.jpg',
       link: 'https://web.facebook.com/WeLovEyaFestival'
     },
     {
