@@ -114,7 +114,7 @@ const Contents = () => {
                   className="position-relative"
                   style={{
                     height: '200px',
-                    backgroundImage: `url('src/assets/image/amazone.jpg')`,
+                    backgroundImage: `url('/logos.jpg')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     cursor: 'pointer',

@@ -99,7 +99,7 @@ const Home = () => {
         <div
           className="jumbotron text-white text-center p-5 animate__animated animate__zoomIn"
           style={{
-            backgroundImage: "url('src/assets/image/logoss.png')",
+            backgroundImage: "url('/logoss.png')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             borderRadius: '10px',
@@ -134,7 +134,7 @@ const Home = () => {
         <div className="mt-5 row align-items-center">
           <div className="col-md-6">
             <img
-              src="src/assets/image/amazone.jpg"
+              src="/amazone.jpg"
               alt="Culture béninoise"
               className="img-fluid rounded animate__animated animate__fadeInLeft"
             />
@@ -201,7 +201,7 @@ const Home = () => {
                   key={num}
                 >
                   <img
-                    src={`src/assets/image/${num}.jpg`}
+                    src={`/${num}.jpg`}
                     className="d-block w-100"
                     alt={`Artiste ${num}`}
                     style={{ height: '650px', objectFit: 'cover' }}
