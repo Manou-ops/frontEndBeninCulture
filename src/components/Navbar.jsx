@@ -39,13 +39,13 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/contents" className="nav-link d-flex align-items-center gap-2 custom-link link-yellow">
+            <Link to="/contents" className="nav-link d-flex align-items-center gap-2 custom-link link-red">
               <FaFileAlt />
               Contenu
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/events" className="nav-link d-flex align-items-center gap-2 custom-link link-yellow">
+            <Link to="/events" className="nav-link d-flex align-items-center gap-2 custom-link link-green">
               <FaCalendarAlt />
               Événements
             </Link>
@@ -60,7 +60,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <span className="nav-link custom-link" style={{ fontWeight: 'bold', color: 'green' }}>
+                <span className="nav-link custom-link" style={{ fontWeight: 'bold', color: 'red' }}>
                   Bienvenue, {user.username}
                 </span>
               </li>
