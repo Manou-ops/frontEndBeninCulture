@@ -164,7 +164,7 @@ const Home = () => {
                 <div
                   className={`card animate__animated animate__zoomIn animate__delay-${index + 1}s`}
                   style={{
-                    backgroundImage: `url('src/assets/image/${img}')`,
+                    backgroundImage: `url('/${img}')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     height: '200px',
